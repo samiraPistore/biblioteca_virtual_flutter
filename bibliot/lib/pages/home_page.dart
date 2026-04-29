@@ -1,3 +1,4 @@
+import 'package:bibliot/components/search_bar.dart';
 import 'package:bibliot/pages/config_page.dart';
 import 'package:bibliot/pages/favorites_page.dart';
 import 'package:bibliot/pages/principal_page.dart';
@@ -27,13 +28,16 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         actions: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              IconButton(onPressed: () {}, icon: Icon(Icons.search)),
-
-              CircleAvatar(),
-            ],
+          Padding(
+            padding: const EdgeInsets.all(12),
+            child: Row(
+              children: [
+                IconButton(onPressed: () {}, icon: Icon(Icons.search)),
+                SearchBarWidget(),
+                SizedBox(width: 20,),
+                CircleAvatar(),
+              ],
+            ),
           ),
         ],
       ),

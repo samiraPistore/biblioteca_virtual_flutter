@@ -1,8 +1,18 @@
+import 'package:bibliot/components/welcome_card.dart';
+import 'package:bibliot/models/book_model.dart';
 import 'package:flutter/material.dart';
 
 class PrincipalPage extends StatelessWidget {
-  const PrincipalPage({super.key});
+  final livros = [
+   Book(
+    title: 'Title agduyfiuysdiss', 
+    author: 'Autor test', 
+    descripition: 'hssssssssssssss', 
+    image: 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTIwfj4ua1yLSLbK7PHX4RG75__H57HEa1nWRDE7x3ZEBypTouXbkbIp15kjPw5tyuxsazPbSwYqNRufHUNYxTcIq_3dcCcN8Vs-aR0w9mmKgN9QmUTBfMj4A'
 
+   ),
+  ];
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -12,18 +22,7 @@ class PrincipalPage extends StatelessWidget {
             padding: const EdgeInsets.all(20),
             child: Column(
               children: [
-                Container(
-                  padding: EdgeInsets.all(20),
-                  width: 500,
-                  height: 100,
-                  color: Color(0xFFF3D7C2),
-                  child: Text(
-                    'Bem vindo, user123! \nPronto para sua próxima leitura?',
-                    style: TextStyle( 
-                      fontSize: 20,
-                    ),
-                  ),
-                ),
+                WelcomeCard(),
                 //Modificar depois
                SizedBox(height: 20),
                 Column(
@@ -57,6 +56,7 @@ class PrincipalPage extends StatelessWidget {
                   ],
                 ),
                 SizedBox(height: 20),
+                
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -113,9 +113,10 @@ class PrincipalPage extends StatelessWidget {
                           height: 100,
                           width: 100,
                         ),
-                       
+                      
                       ],
                     ),
+                    
                   ],
                 ),
               ],
@@ -123,6 +124,7 @@ class PrincipalPage extends StatelessWidget {
           ),
         ),
       ),
+  
     );
   }
 }

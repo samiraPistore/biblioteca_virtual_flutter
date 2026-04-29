@@ -1,4 +1,5 @@
 import 'package:bibliot/pages/home_page.dart';
+import 'package:bibliot/pages/login_page.dart';
 import 'package:bibliot/utils/app.routes.dart';
 import 'package:flutter/material.dart';
 
@@ -26,6 +27,7 @@ class Bibliot extends StatelessWidget {
   
       ),
        routes: {
+        AppRoutes.login: (ctx) => LoginPage(),
         AppRoutes.home: (ctx) => HomePage(),
        }
     );
