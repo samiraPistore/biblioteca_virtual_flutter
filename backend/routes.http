@@ -1,0 +1,36 @@
+###
+POST http://localhost:3020/books
+Content-Type: application/json
+
+{
+    "title": "Crime e Castigo",
+    "author": "Fiódor Dostoiévski",
+    "description": "Crime e Castigo é um romance psicológico do escritor russo Fiódor Dostoiévski, publicado em 1866. A história segue Rodion Raskólnikov, um jovem estudante que comete um assassinato e luta com as consequências morais e psicológicas de seu ato.",
+    "image": "https://m.media-amazon.com/images/I/71Gmavgu3ZL.jpg",
+    "genre": "Filosofia"
+}
+
+
+###
+DELETE  http://localhost:3020/books/e85ecd28-cda3-4637-be0f-cc1ec3f3d0f8
+Content-Type: application/json
+
+###
+GET  http://localhost:3020/books
+Content-Type: application/json
+
+
+###
+POST http://localhost:3020/register
+Content-Type: application/json
+
+{   
+    "name": "Jean",
+    "email": "jean@gmail.com",
+    "senha": "1234"
+}
+
+
+###
+GET  http://localhost:3020/users
+Content-Type: application/json

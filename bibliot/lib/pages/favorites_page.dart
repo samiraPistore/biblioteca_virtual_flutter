@@ -1,85 +1,38 @@
+
+import 'package:bibliot/models/book_model.dart';
 import 'package:flutter/material.dart';
 
+
 class FavoritesPage extends StatelessWidget {
-  const FavoritesPage({super.key});
+  final List<Book> favoriteBooks;
+
+  const FavoritesPage(this.favoriteBooks, {super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical:20),
-          child: Column(
-            children: [
-              
-              Container(
-                height: 200,
-                color: Color(0xFFF3D7C2),
-                child: Row(
-                  children: [
-                    Container(
-                      width: 200,
-                      height: 200,
-                      color:Colors.yellow,
-                    ),
-                    Expanded(
-                      child: ListTile(
-                      
-                      title: Text('Título do livro'),
-                      subtitle: Text('Autor'),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(height: 20),
-              Container(
-                height: 200,
-                color: Color(0xFFF3D7C2),
-                child: Row(
-                  children: [
-                    Container(
-                      width: 200,
-                      height: 200,
-                      color:Colors.yellow,
-                    ),
-                    Expanded(
-                      child: ListTile(
-                      
-                      title: Text('Título do livro'),
-                      subtitle: Text('Autor'),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(height: 20),
-              Container(
-                height: 200,
-                color: Color(0xFFF3D7C2),
-                child: Row(
-                  children: [
-                    Container(
-                      width: 200,
-                      height: 200,
-                      color:Colors.yellow,
-                    ),
-                    Expanded(
-                      child: ListTile(
-                      
-                      title: Text('Título do livro'),
-                      subtitle: Text('Autor'),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
+      appBar: AppBar(
+        title: Text(
+          'Meus Favoritos',
+          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
         ),
+        centerTitle: true,
+      ),
+      body: favoriteBooks.isEmpty
+      ?Center(
+        child: Text('Nenhum favorito ainda')
       )
-      
-    );
+    : ListView.builder(
+      itemCount: favoriteBooks.length,
+      itemBuilder: (ctx, index) {
+        final book = favoriteBooks[index];
 
+        return ListTile(
+          title: Text(book.title),
+        );
+      },
+    ),
+    );
+   
   }
 }

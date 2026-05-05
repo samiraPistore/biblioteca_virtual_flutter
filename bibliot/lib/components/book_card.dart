@@ -1,56 +1,46 @@
 import 'package:bibliot/models/book_model.dart';
-import 'package:bibliot/utils/app.routes.dart';
+import 'package:bibliot/utils/app_navigator_details.dart';
 import 'package:flutter/material.dart';
 
 class BookCard extends StatelessWidget {
   final Book book;
-  final Function onTap;
-  const BookCard( {super.key, required this.onTap, required  this.book});
-   
-   void _selectBook(BuildContext context) {
-    Navigator.of(context).pushNamed(
-      AppRoutes.bookDetail,
-      arguments: book,
-    ).then((result){
-      if(result == null){
-        print('Sem resultado');
-      }else{
-        print('O nome do livro é $result.');
-      }
-    });
-  }
+  const BookCard( {super.key, required this.book});
+
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => _selectBook(context),
-      child: SizedBox(
-        width: 100,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Image.network(
-      
-              book.image,
-              width: 100,
-              height: 140,
-            ),
-            SizedBox(
-              height: 4,
-            ),
-            Text(
-              book.title,
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis, //cortar texto caso seja muito longo 
-            ),
-            Text(
-              book.title,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis, //cortar texto caso seja muito longo 
-            ),
-          ],
+    //inkWell dá efeito de clique para elementos não clicavéis
+    return InkWell(
+      onTap: () => openBookDetail(context, book),
+      child: Card(
+        elevation: 4,
+        child: SizedBox(
+          width: 120,
+          child: Column(
+            children: [
+              Image.network(
+                book.image,
+                width: 100,
+                height: 140,
+                fit: BoxFit.cover,
+              ),
+              const SizedBox(height: 5),
+              Text(
+                book.title,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis, //cortar o texto que ultrapassa o limite de largura disponível 
+                style: const TextStyle(fontWeight: FontWeight.bold),
+              ),
+              // autor
+              Text(
+                book.author,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis, //cortar o texto que ultrapassa o limite de largura disponível 
+                style: const TextStyle(fontSize: 12, color: Colors.grey),
+              ),
+            ],
+          ),
         ),
       ),
-
     );
   }
 }

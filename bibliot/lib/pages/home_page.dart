@@ -1,28 +1,32 @@
-import 'package:bibliot/components/search_bar.dart';
-import 'package:bibliot/pages/config_page.dart';
-import 'package:bibliot/pages/favorites_page.dart';
-import 'package:bibliot/pages/principal_page.dart';
+import 'package:bibliot/components/book_sections.dart';
+import 'package:bibliot/components/welcome_card.dart';
+import 'package:bibliot/data/dummy_data.dart';
+import 'package:bibliot/pages/search_page.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class PrincipalPage extends StatefulWidget {
+  const PrincipalPage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<PrincipalPage> createState() => _PrincipalPageState();
 }
 
-class _HomePageState extends State<HomePage> {
-  int _indiceAtual = 0; // Define o indice da tela escolhida
-  final List<Widget> _telas = [
-    PrincipalPage(), 
-    FavoritesPage(), 
-    ConfigPage(),
-  ];
-  void onTabTapped(int index) {
-    setState(() {
-      _indiceAtual = index;
-    });
-  }
+class _PrincipalPageState extends State<PrincipalPage> {
+  // filtrar os livros por gênero
+  final terror = dummyBooks.where((b) => b.genre == 'Terror').toList();
+
+  final filosofia = dummyBooks.where((b) => b.genre == 'Filosofia').toList();
+
+  final romance = dummyBooks.where((b) => b.genre == 'Romance').toList();
+
+  final fic_cientifica = dummyBooks.where((b) => b.genre == 'Ficção Científica').toList();
+
+  final aventura = dummyBooks.where((b) => b.genre == 'Aventura').toList();
+
+  final drama = dummyBooks.where((b) => b.genre == 'Drama').toList();
+
+  final misterio = dummyBooks.where((b) => b.genre == 'Mistério').toList();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,27 +36,51 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.all(12),
             child: Row(
               children: [
-                IconButton(onPressed: () {}, icon: Icon(Icons.search)),
-                SearchBarWidget(),
-                SizedBox(width: 20,),
+                IconButton(
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => SearchPage()),
+                    );
+                  },
+                  icon: Icon(Icons.search),
+                ),
+                SizedBox(width: 20),
                 CircleAvatar(),
               ],
             ),
           ),
         ],
       ),
+      body: SingleChildScrollView(
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              children: [
+                WelcomeCard(),
+                //Modificar depois
+                SizedBox(height: 20),
 
-      body: _telas[_indiceAtual],
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        selectedItemColor: Colors.white,
-        currentIndex: _indiceAtual, 
-        onTap: onTabTapped, //chama o método ao clicar nas opções
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.star), label: 'Favorites'),
-          BottomNavigationBarItem(icon: Icon(Icons.menu), label: "Menu"),
-        ],
+                BookSections(sectionName: 'Terror', books: terror),
+                SizedBox(height: 20),
+                BookSections(sectionName: 'Romance', books: romance),
+                SizedBox(height: 20),
+                BookSections(sectionName: 'Aventura', books: aventura),
+                SizedBox(height: 20),
+                BookSections(sectionName: 'Mistério', books: misterio),
+                SizedBox(height: 20),
+                BookSections(sectionName: 'Filosofia', books: filosofia),
+                SizedBox(height: 20),
+                BookSections(
+                  sectionName: 'Ficção Científica',
+                  books: fic_cientifica,
+                ),
+                SizedBox(height: 20),
+                BookSections(sectionName: 'Drama', books: drama),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }

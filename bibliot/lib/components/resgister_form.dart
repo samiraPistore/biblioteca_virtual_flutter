@@ -2,54 +2,50 @@ import 'package:bibliot/routes/app.routes.dart';
 import 'package:bibliot/services/user_service.dart';
 import 'package:flutter/material.dart';
 
-
-class Login extends StatefulWidget {
-  const Login({super.key});
+class ResgisterForm extends StatefulWidget {
+  const ResgisterForm({super.key});
 
   @override
-  State<Login> createState() => _LoginState();
+  State<ResgisterForm> createState() => _ResgisterFormState();
 }
 
-class _LoginState extends State<Login> {
-
+class _ResgisterFormState extends State<ResgisterForm> {
+  final nameController = TextEditingController();
   final emailController = TextEditingController();
   final senhaController = TextEditingController();
- bool isLoading = false;
+  bool isLoading = false;
 
-  void _login() async {
+    void _register() async {  
   setState(() => isLoading = true);
 
   try {
-    await UserService.login(
+    await UserService.register(
+      nameController.text,
       emailController.text,
       senhaController.text,
     );
-
-    Navigator.of(context).pushReplacementNamed(AppRoutes.home);
+    if(nameController.text.isEmpty || emailController.text.isEmpty || senhaController.text.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Preencha todos os campos')),
+      );
+      return;
+    }else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Usuário cadastrado com sucesso')),
+      );
+    }
+    Navigator.of(context).pushReplacementNamed(AppRoutes.login);
 
   } catch (e) {
     print(e);
 
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Email ou senha inválidos')),
+      SnackBar(content: Text('Erro ao cadastrar usuário')),
     );
   }
-
-  setState(() => isLoading = false);
-}
-
-
-
-  bool obscurePass = true;
-  void _viewPass(){
-    setState(() {
-      obscurePass = !obscurePass;
-    });
-  }
-
-  
+ setState(() => isLoading = false);
+    }
   @override
-  
   Widget build(BuildContext context) {
     return Center(
       child: SingleChildScrollView(
@@ -65,18 +61,32 @@ class _LoginState extends State<Login> {
                   padding: const EdgeInsets.all(25),
                   child: Column(
                     children: [
+                     
                       SizedBox(height: 40),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
+                          
                           Text(
-                            'Login',
+                            'Casdastrar-se',
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
-                              fontSize: 35,
+                              fontSize: 30,
                             ),
                           ),
                         ],
+                      ),
+                      SizedBox(height: 20),
+                      TextField(
+                        controller: nameController,
+                        onSubmitted: (null),
+                        decoration: InputDecoration(
+                          labelText: 'Nome',
+                          prefixIcon: Icon(Icons.person),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                        ),
                       ),
                       SizedBox(height: 20),
                       TextField(
@@ -97,32 +107,14 @@ class _LoginState extends State<Login> {
                         decoration: InputDecoration(
                           labelText: 'Senha',
                           prefixIcon: Icon(Icons.lock),
-                          suffixIcon: IconButton(
-                            onPressed: () => _viewPass(), 
-                            icon: obscurePass == true ? Icon(Icons.visibility) : Icon(Icons.visibility_off)),
+                      
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10.0),
                           ),
                           
                         ),
                         
-                        obscureText: obscurePass,
-                      ),
-
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          TextButton(
-                            onPressed: () {},
-                            child: Text(
-                              'Esqueci minha senha',
-                              style: TextStyle(
-                                color: Color.fromARGB(255, 125, 166, 148),
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        ],
+                        obscureText: true,
                       ),
                       SizedBox(height: 20),
                       ElevatedButton(
@@ -135,9 +127,9 @@ class _LoginState extends State<Login> {
                             ), // Cantos bem arredondados
                           ),
                         ),
-                        onPressed: isLoading ? null : () => _login(),
+                        onPressed: isLoading ? null : () => _register(),
                         child: Text(
-                          'Entrar',
+                          'Castrar-se',
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 25,
@@ -145,24 +137,7 @@ class _LoginState extends State<Login> {
                           ),
                         ),
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text('Ainda não tem uma conta?', style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
-                          TextButton(
-                            onPressed: () => Navigator.of(context).pushNamed(AppRoutes.register),
-                            child: Text(
-                              'Cadatrar-se agora',
-
-                              style: TextStyle(
-                                color: Color.fromARGB(255, 114, 179, 151),
-                                fontWeight: FontWeight.bold,
-                                fontSize: 12,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
+                    
                     ],
                   ),
                 ),
