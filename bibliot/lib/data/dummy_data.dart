@@ -9,6 +9,7 @@ final dummyBooks = [
     image: 'https://www.gutenberg.org/cache/epub/55752/pg55752.cover.medium.jpg',
     isFavorite: false,
     genre: 'Romance',
+    pdfUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Dom%20Casmurro.pdf'
   ),
   Book(
     id: '2',
@@ -18,6 +19,7 @@ final dummyBooks = [
     image: 'https://www.gutenberg.org/cache/epub/54829/pg54829.cover.medium.jpg',
     isFavorite: false,
     genre: 'Clássico',
+    pdfUrl: 'https://www.leialivre.com/wp-content/uploads/2020/06/Memorias-Postumas-de-Bras-Cubas.pdf',
   ),
   Book(
     id: '3',
@@ -26,7 +28,7 @@ final dummyBooks = [
     descripition: 'Um retrato cru da vida em um cortiço, revelando desigualdade, instintos humanos e tensões sociais.',
     image: 'https://www.gutenberg.org/cache/epub/6913/pg6913.cover.medium.jpg',
     isFavorite: false,
-    genre: 'Realismo',
+    genre: 'Realismo', pdfUrl: 'https://www.gutenberg.org/files/6913/6913-pdf.pdf',
   ),
   Book(
     id: '4',
@@ -35,7 +37,8 @@ final dummyBooks = [
     descripition: 'Uma história leve e romântica sobre promessas, juventude e encontros inesperados.',
     image: 'https://www.gutenberg.org/cache/epub/24950/pg24950.cover.medium.jpg',
     isFavorite: false,
-    genre: 'Romance',
+    genre: 'Romance', 
+    pdfUrl: 'https://www.coreknowledge.org/wp-content/uploads/2023/08/CC_Frankenstein_Reader_W1.pdf'
   ),
   Book(
     id: '5',
@@ -44,7 +47,8 @@ final dummyBooks = [
     descripition: 'O amor entre uma indígena e um colonizador revela o encontro — e conflito — de culturas no Brasil colonial.',
     image: 'https://www.gutenberg.org/cache/epub/6774/pg6774.cover.medium.jpg',
     isFavorite: false,
-    genre: 'Romance',
+    genre: 'Romance', 
+   pdfUrl: 'https://www.coreknowledge.org/wp-content/uploads/2023/08/CC_Frankenstein_Reader_W1.pdf'
   ),
   Book(
     id: '6',
@@ -54,6 +58,7 @@ final dummyBooks = [
     image: 'https://www.gutenberg.org/cache/epub/27229/pg27229.cover.medium.jpg',
     isFavorite: false,
     genre: 'Romance',
+   pdfUrl: 'https://www.coreknowledge.org/wp-content/uploads/2023/08/CC_Frankenstein_Reader_W1.pdf',
   ),
   Book(
     id: '7',
@@ -63,6 +68,7 @@ final dummyBooks = [
     image: 'https://altabooks.com.br/wp-content/uploads/2024/05/CAPA_1000x_Dracula.webp',
     isFavorite: false,
     genre: 'Terror',
+    pdfUrl: 'https://www.coreknowledge.org/wp-content/uploads/2023/08/CC_Frankenstein_Reader_W1.pdf'
   ),
   Book(
     id: '8',
@@ -72,6 +78,7 @@ final dummyBooks = [
     image: 'https://www.gutenberg.org/cache/epub/84/pg84.cover.medium.jpg',
     isFavorite: false,
     genre: 'Ficção Científica',
+    pdfUrl: 'https://www.coreknowledge.org/wp-content/uploads/2023/08/CC_Frankenstein_Reader_W1.pdf'
   ),
   Book(
     id: '9',
@@ -80,7 +87,7 @@ final dummyBooks = [
     descripition: 'Entre encontros e desencontros, o amor surge em meio a julgamentos e diferenças sociais.',
     image: 'https://www.gutenberg.org/cache/epub/1342/pg1342.cover.medium.jpg',
     isFavorite: false,
-    genre: 'Romance',
+    genre: 'Romance', pdfUrl: 'https://www.coreknowledge.org/wp-content/uploads/2023/08/CC_Frankenstein_Reader_W1.pdf',
   ),
   Book(
     id: '10',
@@ -89,7 +96,7 @@ final dummyBooks = [
     descripition: 'Uma jornada fantástica por um mundo ilógico e encantador, cheio de personagens inesquecíveis.',
     image: 'https://www.gutenberg.org/cache/epub/11/pg11.cover.medium.jpg',
     isFavorite: false,
-    genre: 'Fantasia',
+    genre: 'Fantasia', pdfUrl: 'https://www.coreknowledge.org/wp-content/uploads/2023/08/CC_Frankenstein_Reader_W1.pdf',
   ),
   Book(
     id: '11',
@@ -98,7 +105,7 @@ final dummyBooks = [
     descripition: 'Dorothy embarca em uma aventura mágica em busca de um caminho de volta para casa.',
     image: 'https://www.gutenberg.org/cache/epub/55/pg55.cover.medium.jpg',
     isFavorite: false,
-    genre: 'Fantasia',
+    genre: 'Fantasia', pdfUrl: 'https://www.coreknowledge.org/wp-content/uploads/2023/08/CC_Frankenstein_Reader_W1.pdf',
   ),
   Book(
     id: '12',
@@ -107,7 +114,7 @@ final dummyBooks = [
     descripition: 'Uma emocionante aventura com piratas, mapas secretos e a busca por um grande tesouro.',
     image: 'https://www.gutenberg.org/cache/epub/120/pg120.cover.medium.jpg',
     isFavorite: false,
-    genre: 'Aventura',
+    genre: 'Aventura', pdfUrl: 'https://www.coreknowledge.org/wp-content/uploads/2023/08/CC_Frankenstein_Reader_W1.pdf',
   ),
   Book(
     id: '13',
@@ -116,7 +123,7 @@ final dummyBooks = [
     descripition: 'Uma expedição incrível rumo ao desconhecido revela mistérios escondidos sob a superfície da Terra.',
     image: 'https://www.gutenberg.org/cache/epub/18857/pg18857.cover.medium.jpg',
     isFavorite: false,
-    genre: 'Ficção Científica',
+    genre: 'Ficção Científica', pdfUrl: 'https://www.coreknowledge.org/wp-content/uploads/2023/08/CC_Frankenstein_Reader_W1.pdf',
   ),
   Book(
     id: '14',
@@ -125,7 +132,7 @@ final dummyBooks = [
     descripition: 'Uma jornada fascinante pelos oceanos a bordo do misterioso submarino Nautilus.',
     image: 'https://www.gutenberg.org/cache/epub/164/pg164.cover.medium.jpg',
     isFavorite: false,
-    genre: 'Ficção Científica',
+    genre: 'Ficção Científica', pdfUrl: 'https://www.coreknowledge.org/wp-content/uploads/2023/08/CC_Frankenstein_Reader_W1.pdf',
   ),
   Book(
     id: '15',
@@ -134,7 +141,7 @@ final dummyBooks = [
     descripition: 'A busca pela juventude eterna leva a uma decadência moral inquietante.',
     image: 'https://www.gutenberg.org/cache/epub/174/pg174.cover.medium.jpg',
     isFavorite: false,
-    genre: 'Drama',
+    genre: 'Drama', pdfUrl: 'https://www.coreknowledge.org/wp-content/uploads/2023/08/CC_Frankenstein_Reader_W1.pdf',
   ),
   Book(
     id: '16',
@@ -143,7 +150,7 @@ final dummyBooks = [
     descripition: 'Uma poderosa história de redenção, justiça e luta contra as desigualdades sociais.',
     image: 'https://www.gutenberg.org/cache/epub/135/pg135.cover.medium.jpg',
     isFavorite: false,
-    genre: 'Drama',
+    genre: 'Drama', pdfUrl: 'https://www.coreknowledge.org/wp-content/uploads/2023/08/CC_Frankenstein_Reader_W1.pdf',
   ),
   Book(
     id: '17',
@@ -152,7 +159,7 @@ final dummyBooks = [
     descripition: 'Uma corrida eletrizante contra o tempo ao redor do mundo cheia de desafios e surpresas.',
     image: 'https://www.gutenberg.org/cache/epub/103/pg103.cover.medium.jpg',
     isFavorite: false,
-    genre: 'Aventura',
+    genre: 'Aventura', pdfUrl: 'https://www.coreknowledge.org/wp-content/uploads/2023/08/CC_Frankenstein_Reader_W1.pdf',
   ),
   Book(
     id: '18',
@@ -161,7 +168,7 @@ final dummyBooks = [
     descripition: 'Um guia provocador sobre poder, estratégia e liderança política.',
     image: 'https://www.gutenberg.org/cache/epub/1232/pg1232.cover.medium.jpg',
     isFavorite: false,
-    genre: 'Filosofia',
+    genre: 'Filosofia', pdfUrl: 'https://www.coreknowledge.org/wp-content/uploads/2023/08/CC_Frankenstein_Reader_W1.pdf',
   ),
   Book(
     id: '19',
@@ -170,7 +177,7 @@ final dummyBooks = [
     descripition: 'Um experimento revela o lado sombrio da natureza humana.',
     image: 'https://www.moderna.com.br/data/files/2F/91/4C/55/3D50E510A92A20E528A808A8/omedicoeomonstro_gd.jpg',
     isFavorite: false,
-    genre: 'Terror',
+    genre: 'Terror', pdfUrl: 'https://www.coreknowledge.org/wp-content/uploads/2023/08/CC_Frankenstein_Reader_W1.pdf',
   ),
   Book(
     id: '20',
@@ -179,7 +186,7 @@ final dummyBooks = [
     descripition: 'Mistério e romance se entrelaçam em um teatro assombrado por uma figura enigmática.',
     image: 'https://imagens.disal.com.br/produtos/ampliada/9933220.jpg',
     isFavorite: false,
-    genre: 'Terror',
+    genre: 'Terror', pdfUrl: 'https://www.coreknowledge.org/wp-content/uploads/2023/08/CC_Frankenstein_Reader_W1.pdf',
   ),
   Book(
     id: '21',
@@ -188,7 +195,7 @@ final dummyBooks = [
     descripition: 'Um conto perturbador sobre culpa, loucura e consequências inevitáveis.',
     image: 'https://a-static.mlcdn.com.br/%7Bw%7Dx%7Bh%7D/livro-o-gato-preto-e-outros-contos-de-terror/livrarialeituradompedro/9788566594379/8d84aaebbc45538886b9d172677d2efa.jpg',
     isFavorite: false,
-    genre: 'Terror',
+    genre: 'Terror', pdfUrl: 'https://www.coreknowledge.org/wp-content/uploads/2023/08/CC_Frankenstein_Reader_W1.pdf',
   ),
   Book(
     id: '22',
@@ -197,7 +204,7 @@ final dummyBooks = [
     descripition: 'Uma atmosfera sombria envolve a decadência de uma família e sua misteriosa mansão.',
     image: 'https://www.gutenberg.org/cache/epub/932/pg932.cover.medium.jpg',
     isFavorite: false,
-    genre: 'Terror',
+    genre: 'Terror', pdfUrl: 'https://www.coreknowledge.org/wp-content/uploads/2023/08/CC_Frankenstein_Reader_W1.pdf',
   ),
   Book(
     id: '23',
@@ -206,7 +213,7 @@ final dummyBooks = [
     descripition: 'Um suspense psicológico angustiante ambientado em um cenário de tortura e medo.',
     image: 'https://www.gutenberg.org/cache/epub/2147/pg2147.cover.medium.jpg',
     isFavorite: false,
-    genre: 'Terror',
+    genre: 'Terror', pdfUrl: 'https://www.coreknowledge.org/wp-content/uploads/2023/08/CC_Frankenstein_Reader_W1.pdf',
   ),
   Book(
     id: '24',
@@ -215,7 +222,7 @@ final dummyBooks = [
     descripition: 'O início das investigações de Sherlock Holmes, combinando lógica e mistério.',
     image: 'https://www.gutenberg.org/cache/epub/244/pg244.cover.medium.jpg',
     isFavorite: false,
-    genre: 'Mistério',
+    genre: 'Mistério', pdfUrl: 'https://www.coreknowledge.org/wp-content/uploads/2023/08/CC_Frankenstein_Reader_W1.pdf',
   ),
   Book(
     id: '25',
@@ -224,7 +231,7 @@ final dummyBooks = [
     descripition: 'Um caso envolto em lendas sombrias e mistério nas terras isoladas da Inglaterra.',
     image: 'https://www.gutenberg.org/cache/epub/2852/pg2852.cover.medium.jpg',
     isFavorite: false,
-    genre: 'Mistério',
+    genre: 'Mistério', pdfUrl: 'https://www.coreknowledge.org/wp-content/uploads/2023/08/CC_Frankenstein_Reader_W1.pdf',
   ),
   Book(
     id: '26',
@@ -233,7 +240,7 @@ final dummyBooks = [
     descripition: 'Um enigma inacabado que mistura desaparecimento, suspeitas e tensão.',
     image: 'https://www.gutenberg.org/cache/epub/564/pg564.cover.medium.jpg',
     isFavorite: false,
-    genre: 'Mistério',
+    genre: 'Mistério', pdfUrl: 'https://www.coreknowledge.org/wp-content/uploads/2023/08/CC_Frankenstein_Reader_W1.pdf',
   ),
   Book(
     id: '27',
@@ -242,6 +249,6 @@ final dummyBooks = [
     descripition: 'Um dos primeiros romances policiais, cheio de reviravoltas e segredos.',
     image: 'https://www.gutenberg.org/cache/epub/155/pg155.cover.medium.jpg',
     isFavorite: false,
-    genre: 'Mistério',
+    genre: 'Mistério', pdfUrl: 'https://www.coreknowledge.org/wp-content/uploads/2023/08/CC_Frankenstein_Reader_W1.pdf',
   ),
 ];

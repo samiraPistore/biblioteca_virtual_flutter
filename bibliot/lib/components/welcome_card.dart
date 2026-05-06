@@ -23,8 +23,8 @@ class _WelcomeCardState extends State<WelcomeCard> {
       height: 100,
       child: Text(
         'Bem vindo, user123! \nPronto para sua próxima leitura?',
-        style: TextStyle(fontSize: 20),
-      ),
+        style: TextStyle(fontSize: 20, color: Color(0xFFF122F51)),
+            ),
     );
   }
 }

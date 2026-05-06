@@ -6,6 +6,7 @@ class Book{
   final String image;
   final bool isFavorite;
   final String genre;
+  final String pdfUrl;
 
 
   Book({
@@ -15,7 +16,8 @@ class Book{
     required this.descripition,
     required this.image,
     this.isFavorite = false,
-    required this.genre,
+    required this.genre, 
+    required this.pdfUrl
   });
 
 
@@ -28,7 +30,8 @@ class Book{
       author: json['auhor'], 
       descripition: json['descripition'], 
       image: json['image'], 
-      genre: json['genre']
+      genre: json['genre'],
+      pdfUrl: json['pdfUrl']
     );
   }
 }

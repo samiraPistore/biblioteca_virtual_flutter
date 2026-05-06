@@ -2,7 +2,6 @@ import 'package:bibliot/routes/app.routes.dart';
 import 'package:bibliot/services/user_service.dart';
 import 'package:flutter/material.dart';
 
-
 class Login extends StatefulWidget {
   const Login({super.key});
 
@@ -11,45 +10,36 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-
   final emailController = TextEditingController();
   final senhaController = TextEditingController();
- bool isLoading = false;
+  bool isLoading = false;
 
   void _login() async {
-  setState(() => isLoading = true);
+    setState(() => isLoading = true);
 
-  try {
-    await UserService.login(
-      emailController.text,
-      senhaController.text,
-    );
+    try {
+      await UserService.login(emailController.text, senhaController.text);
 
-    Navigator.of(context).pushReplacementNamed(AppRoutes.home);
+      Navigator.of(context).pushReplacementNamed(AppRoutes.home);
+    } catch (e) {
+      print(e);
 
-  } catch (e) {
-    print(e);
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text('Email ou senha inválidos')));
+    }
 
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Email ou senha inválidos')),
-    );
+    setState(() => isLoading = false);
   }
 
-  setState(() => isLoading = false);
-}
-
-
-
   bool obscurePass = true;
-  void _viewPass(){
+  void _viewPass() {
     setState(() {
       obscurePass = !obscurePass;
     });
   }
 
-  
   @override
-  
   Widget build(BuildContext context) {
     return Center(
       child: SingleChildScrollView(
@@ -74,6 +64,7 @@ class _LoginState extends State<Login> {
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 35,
+                              color: Color(0xFFF122F51),
                             ),
                           ),
                         ],
@@ -83,8 +74,17 @@ class _LoginState extends State<Login> {
                         controller: emailController,
                         onSubmitted: (null),
                         decoration: InputDecoration(
-                          labelText: 'Email',
-                          prefixIcon: Icon(Icons.email),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color(0xFFF122F51),
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(10.0),
+                            
+                          ),
+                          labelText: 'Email', 
+                          labelStyle: TextStyle(color: Color(0xFFF122F51)),
+                          prefixIcon: Icon(Icons.email, color:Color(0xFFF122F51)),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10.0),
                           ),
@@ -94,18 +94,32 @@ class _LoginState extends State<Login> {
                       TextField(
                         controller: senhaController,
                         onSubmitted: (null),
+
                         decoration: InputDecoration(
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color(0xFFF122F51),
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          // Borda quando o campo ganha foco
+                          
                           labelText: 'Senha',
-                          prefixIcon: Icon(Icons.lock),
+                          labelStyle: TextStyle(color: Color(0xFFF122F51)),
+                          prefixIcon: Icon(Icons.lock, color: Color(0xFFF122F51)),
                           suffixIcon: IconButton(
-                            onPressed: () => _viewPass(), 
-                            icon: obscurePass == true ? Icon(Icons.visibility) : Icon(Icons.visibility_off)),
+                            onPressed: () => _viewPass(),
+                            icon: obscurePass == true
+                                ? Icon(Icons.visibility)
+                                : Icon(Icons.visibility_off),
+                                color: Color(0xFFF122F51),
+                          ),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10.0),
                           ),
-                          
                         ),
-                        
+
                         obscureText: obscurePass,
                       ),
 
@@ -129,6 +143,7 @@ class _LoginState extends State<Login> {
                         style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xFFF17A7A8),
                           minimumSize: Size(300, 45),
+
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(
                               10.0,
@@ -148,9 +163,18 @@ class _LoginState extends State<Login> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text('Ainda não tem uma conta?', style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
+                          Text(
+                            'Ainda não tem uma conta?',
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xFFF122F51),
+                            ),
+                          ),
                           TextButton(
-                            onPressed: () => Navigator.of(context).pushNamed(AppRoutes.register),
+                            onPressed: () => Navigator.of(
+                              context,
+                            ).pushNamed(AppRoutes.register),
                             child: Text(
                               'Cadatrar-se agora',
 

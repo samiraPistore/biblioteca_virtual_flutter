@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 class BookSections extends StatelessWidget {
   final String sectionName;
   final List<Book> books;
+  
   const BookSections({
     super.key,
     required this.sectionName,
@@ -26,7 +27,7 @@ class BookSections extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             itemCount: books.length,
             itemBuilder: (context, index) {
-              return BookCard(book: books[index],);
+              return BookCard(book: books[index], );
             },
           ),
         ),

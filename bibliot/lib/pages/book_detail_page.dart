@@ -1,11 +1,21 @@
+import 'package:advance_pdf_viewer_fork/advance_pdf_viewer_fork.dart';
 import 'package:bibliot/models/book_model.dart';
+import 'package:bibliot/pages/pdf_page.dart';
+import 'package:bibliot/providers/favorites.dart';
+import 'package:bibliot/routes/app.routes.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class BookDetailPage extends StatelessWidget {
+class BookDetailPage extends StatefulWidget {
   final Book book;
 
   const BookDetailPage(this.book, {super.key});
 
+  @override
+  State<BookDetailPage> createState() => _BookDetailPageState();
+}
+
+class _BookDetailPageState extends State<BookDetailPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,7 +60,10 @@ class BookDetailPage extends StatelessWidget {
                     Container(
                       height: 190,
                       width: 140,
-                      child: Image.network(book.image, fit: BoxFit.cover),
+                      child: Image.network(
+                        widget.book.image,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                     const SizedBox(width: 12),
 
@@ -59,7 +72,7 @@ class BookDetailPage extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            book.title,
+                            widget.book.title,
                             style: const TextStyle(
                               color: Colors.white,
                               fontSize: 20,
@@ -68,7 +81,7 @@ class BookDetailPage extends StatelessWidget {
                           ),
                           const SizedBox(height: 8),
                           Text(
-                            book.author,
+                            widget.book.author,
                             style: const TextStyle(color: Colors.white70),
                           ),
                         ],
@@ -83,7 +96,11 @@ class BookDetailPage extends StatelessWidget {
                 bottom: 20,
                 right: 20,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () => Navigator.of(context).push(
+                    MaterialPageRoute<void>(
+                      builder: (context) => PdfPage(widget.book),
+                    ),
+                  ),
                   child: const Text(
                     'Começar a ler',
                     style: TextStyle(color: Colors.white),
@@ -98,24 +115,29 @@ class BookDetailPage extends StatelessWidget {
               ),
             ],
           ),
-       
+
           Padding(
             padding: const EdgeInsets.all(40),
-            child: Container(
-             child: Text(book.descripition),
-            ),
-          ), 
-
+            child: Container(child: Text(widget.book.descripition)),
+          ),
         ],
       ), // Botão favorito
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Color(0xFFFFE958F),
-        child: Icon(
-          Icons.star_border,
-          color: Colors.black, // Define a cor
-          size: 40.0, // Define o tamanho
-        ),
-        onPressed: () {},
+      // Botão favorito
+      floatingActionButton: Consumer<FavoritesProvider>(
+        builder: (ctx, provider, child) {
+          return FloatingActionButton(
+            onPressed: () {
+              provider.toggleFavorite(widget.book);
+            },
+            backgroundColor: Color(0xFFFFE958F),
+
+            child: Icon(
+              provider.isFavorite(widget.book) ? Icons.star : Icons.star_border,
+              color: Colors.black,
+              size: 30,
+            ),
+          );
+        },
       ),
     );
   }

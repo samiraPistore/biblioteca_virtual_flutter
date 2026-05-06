@@ -74,9 +74,9 @@ class _SearchPageState extends State<SearchPage> {
                       child: ListTile(
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                         tileColor:Color(0xFFF3D7C2),
-                        title: Text(book.title),
+                        title: Text(book.title, style: TextStyle(color:  Color(0xFFF122F51)),),
                         leading: Image.network(book.image, width: 50, height: 70, fit: BoxFit.cover),
-                        subtitle: Text(book.author),
+                        subtitle: Text(book.author, style: TextStyle(color: Color.fromARGB(255, 16, 23, 31)),),
                       ),
                     ),
                       

@@ -12,6 +12,7 @@ class PrincipalPage extends StatefulWidget {
 }
 
 class _PrincipalPageState extends State<PrincipalPage> {
+  
   // filtrar os livros por gênero
   final terror = dummyBooks.where((b) => b.genre == 'Terror').toList();
 
@@ -45,7 +46,11 @@ class _PrincipalPageState extends State<PrincipalPage> {
                   icon: Icon(Icons.search),
                 ),
                 SizedBox(width: 20),
-                CircleAvatar(),
+                InkWell(
+                  onTap: () {},
+                  child: CircleAvatar(),
+                
+                ),
               ],
             ),
           ),

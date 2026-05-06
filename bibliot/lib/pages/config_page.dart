@@ -1,4 +1,6 @@
+import 'package:bibliot/providers/app_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ConfigPage extends StatefulWidget {
   const ConfigPage({super.key});
@@ -9,8 +11,11 @@ class ConfigPage extends StatefulWidget {
  
 class _ConfigPageState extends State<ConfigPage> {
   bool isSwitched = false;
+  
   @override
+  
   Widget build(BuildContext context) {
+     final themeProvider = Provider.of<AppController>(context);
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -54,10 +59,12 @@ class _ConfigPageState extends State<ConfigPage> {
                children: [
                 Text('Tema'),
                 Divider(),
-                Switch(value: isSwitched, onChanged:(value){
-                  setState(() {
-                    isSwitched = !isSwitched;
-                  });
+                Switch(
+                  value: themeProvider.isDarkTheme,
+                  onChanged: (value) {
+                    //muda valor da variável mudando o tema
+                    themeProvider.changeTheme();
+                
                 }),
                ],
               ),
