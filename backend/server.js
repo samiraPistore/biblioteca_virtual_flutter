@@ -20,6 +20,10 @@ function saveData(data) {
   fs.writeFileSync(db_file, JSON.stringify(data, null, 2)); // null e 2 para formatar o json
 }
 
+
+app.get('/', (req, res) => {
+  res.send('API Bibliot online 🚀');
+});
 app.post('/register', async (req, res) => {
   try {
     const data = readData();
