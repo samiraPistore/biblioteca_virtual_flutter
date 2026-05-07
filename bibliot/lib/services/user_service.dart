@@ -3,7 +3,7 @@ import 'package:bibliot/models/user_modal.dart';
 import 'package:http/http.dart' as http;
 
 class UserService {
-  static const String baseUrl = 'http://10.0.2.2:3020';
+  static const String baseUrl = 'https://biblioteca-virtual-flutter.onrender.com';
   static Future<dynamic> login(String email, String senha) async {
     final response = await http.post(
       Uri.parse('$baseUrl/login'),

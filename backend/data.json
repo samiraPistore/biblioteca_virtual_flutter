@@ -1,0 +1,16 @@
+{
+  "users": [
+    {
+      "id": "075faa1a-289c-4487-bc2f-7127ba6182b3",
+      "name": "sami",
+      "email": "sami@gmail.com",
+      "senha": "$2b$10$K/LMu2jznGbHAjMtzfND2.VYru7XvMKUM4kk08djDvYOqNj4aIoZ."
+    },
+    {
+      "id": "0d854ba6-d214-438d-a8dc-eb591f906b52",
+      "name": "jean",
+      "email": "jean@gmail.com",
+      "senha": "$2b$10$55mwjM8tI.DgikEUzzEAMu5QOLE..Qcar.s20vCD.JG/YfnihrrQK"
+    }
+  ]
+}
