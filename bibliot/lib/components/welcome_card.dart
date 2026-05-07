@@ -1,30 +1,48 @@
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 
-class WelcomeCard extends StatefulWidget {
- 
+class WelcomeCard extends StatelessWidget {
+  const WelcomeCard({super.key});
 
-  const WelcomeCard( {super.key});
-
-  @override
-  State<WelcomeCard> createState() => _WelcomeCardState();
-}
-
-class _WelcomeCardState extends State<WelcomeCard> {
   @override
   Widget build(BuildContext context) {
-   
+    final box = Hive.box('user');
+
+    final userName = box.get("name") ?? "Usuário";
+
     return Container(
       decoration: BoxDecoration(
-        color: Color(0xFFF3D7C2),
-        borderRadius: BorderRadius.all(Radius.circular(10.0)),
+        color: const Color(0xFFF3D7C2),
+        borderRadius: BorderRadius.circular(10),
       ),
-      padding: EdgeInsets.all(20),
-      width: 500,
+      padding: const EdgeInsets.all(20),
+      width: double.infinity,
       height: 100,
-      child: Text(
-        'Bem vindo, user123! \nPronto para sua próxima leitura?',
-        style: TextStyle(fontSize: 20, color: Color(0xFFF122F51)),
+      child: Align(
+        alignment: Alignment.centerLeft,
+        child: Column(
+          
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Boas vindas, $userName! ',
+              style: const TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Color(0xFF122F51),
+              ),
             ),
+            Text(
+              'Preparado(a) para sua próxima leitura?',
+              style: const TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: Color(0xFF122F51),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

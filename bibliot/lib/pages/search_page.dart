@@ -38,7 +38,8 @@ class _SearchPageState extends State<SearchPage> {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            Row(
+           
+            Row(  
               mainAxisSize:
                   MainAxisSize.min, //ocupar o minimo de espaço possível
               mainAxisAlignment:

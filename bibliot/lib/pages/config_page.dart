@@ -1,3 +1,4 @@
+import 'package:bibliot/components/user_infos.dart';
 import 'package:bibliot/providers/app_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -29,7 +30,7 @@ class _ConfigPageState extends State<ConfigPage> {
         child: Center(
           child: Column(
             children: [
-              
+              UserInfos(),
               Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                children: [

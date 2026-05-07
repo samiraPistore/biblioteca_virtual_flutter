@@ -1,5 +1,6 @@
 import 'package:bibliot/providers/favorites.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:provider/provider.dart';
 
 
@@ -11,6 +12,7 @@ class FavoritesPage extends StatelessWidget {
 @override
 Widget build(BuildContext context) {
   final favorites = Provider.of<FavoritesProvider>(context).favorites;
+  
 
   return Scaffold(
     appBar: AppBar(

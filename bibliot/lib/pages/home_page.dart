@@ -2,7 +2,9 @@ import 'package:bibliot/components/book_sections.dart';
 import 'package:bibliot/components/welcome_card.dart';
 import 'package:bibliot/data/dummy_data.dart';
 import 'package:bibliot/pages/search_page.dart';
+import 'package:bibliot/routes/app.routes.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 
 class PrincipalPage extends StatefulWidget {
   const PrincipalPage({super.key});
@@ -12,6 +14,7 @@ class PrincipalPage extends StatefulWidget {
 }
 
 class _PrincipalPageState extends State<PrincipalPage> {
+ // Exclui o token para simular o logout
   
   // filtrar os livros por gênero
   final terror = dummyBooks.where((b) => b.genre == 'Terror').toList();
@@ -47,7 +50,30 @@ class _PrincipalPageState extends State<PrincipalPage> {
                 ),
                 SizedBox(width: 20),
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                     showDialog(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                        title: Text('Sair'),
+                        content: Text('Deseja realmente sair?'),
+                        actions: [
+                          TextButton(
+                            onPressed: () => Navigator.of(context).pop(),
+                            child: Text('Cancelar'),
+                          ),
+                          TextButton(
+                            onPressed: ()async {
+                              // Exclui o token para simular o logout
+                               await Hive.box('user').clear();
+                               Navigator.of(context).pushReplacementNamed(AppRoutes.login);
+                               print( 'Token excluído, usuário deslogado');
+                            },
+                            child: Text('Sair'),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
                   child: CircleAvatar(),
                 
                 ),

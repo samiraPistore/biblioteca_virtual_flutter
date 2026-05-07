@@ -119,7 +119,7 @@ class _ResgisterFormState extends State<ResgisterForm> {
                       SizedBox(height: 20),
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFFF17A7A8),
+                          backgroundColor: Color(0xFFF17A7A8),
                           minimumSize: Size(300, 45),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(

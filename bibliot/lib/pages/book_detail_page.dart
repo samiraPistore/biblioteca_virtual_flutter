@@ -1,8 +1,5 @@
-import 'package:advance_pdf_viewer_fork/advance_pdf_viewer_fork.dart';
 import 'package:bibliot/models/book_model.dart';
-import 'package:bibliot/pages/pdf_page.dart';
 import 'package:bibliot/providers/favorites.dart';
-import 'package:bibliot/routes/app.routes.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -96,20 +93,16 @@ class _BookDetailPageState extends State<BookDetailPage> {
                 bottom: 20,
                 right: 20,
                 child: ElevatedButton(
-                  onPressed: () => Navigator.of(context).push(
-                    MaterialPageRoute<void>(
-                      builder: (context) => PdfPage(widget.book),
-                    ),
-                  ),
-                  child: const Text(
-                    'Começar a ler',
-                    style: TextStyle(color: Colors.white),
-                  ),
+                  onPressed: (){},
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFFF17A7A8),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
                     ),
+                  ),
+                  child: const Text(
+                    'Começar a ler',
+                    style: TextStyle(color: Colors.white),
                   ),
                 ),
               ),

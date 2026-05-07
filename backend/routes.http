@@ -32,5 +32,10 @@ Content-Type: application/json
 
 
 ###
-GET  http://localhost:3020/users
+PUT  http://localhost:3020/users/0522a822-26f9-40aa-a02c-aac434187fc1
 Content-Type: application/json
+
+{   
+   
+    "senha": "1234"
+}

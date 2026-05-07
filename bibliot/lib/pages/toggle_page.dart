@@ -20,7 +20,7 @@ class _HomePageState extends State<TogglePage> {
       _indiceAtual = index;
     });
   }
-
+  
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,7 @@ class _HomePageState extends State<TogglePage> {
         currentIndex: _indiceAtual,
         onTap: onTabTapped, //chama o método ao clicar nas opções
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home-'),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(icon: Icon(Icons.star), label: 'Favorites'),
           BottomNavigationBarItem(icon: Icon(Icons.menu), label: "Menu"),
         ],

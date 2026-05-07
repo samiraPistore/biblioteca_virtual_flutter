@@ -1,6 +1,9 @@
+import 'package:bibliot/pages/home_page.dart';
+import 'package:bibliot/pages/toggle_page.dart';
 import 'package:bibliot/routes/app.routes.dart';
 import 'package:bibliot/services/user_service.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -18,15 +21,33 @@ class _LoginState extends State<Login> {
     setState(() => isLoading = true);
 
     try {
-      await UserService.login(emailController.text, senhaController.text);
+      final response = await UserService.login(
+        emailController.text,
+        senhaController.text,
+      );
 
-      Navigator.of(context).pushReplacementNamed(AppRoutes.home);
+      print(response);
+
+      if (response != null) {
+        final box = Hive.box("user");
+
+        box.put("name", response["user"]["name"]);
+        box.put("email", response["user"]["email"]);
+        box.put("token", response["token"]);
+
+        print(box.get("name"));
+
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => TogglePage()),
+        );
+      }
     } catch (e) {
       print(e);
 
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(SnackBar(content: Text('Email ou senha inválidos')));
+      ).showSnackBar(const SnackBar(content: Text('Email ou senha inválidos')));
     }
 
     setState(() => isLoading = false);
@@ -80,11 +101,13 @@ class _LoginState extends State<Login> {
                               width: 1.0,
                             ),
                             borderRadius: BorderRadius.circular(10.0),
-                            
                           ),
-                          labelText: 'Email', 
+                          labelText: 'Email',
                           labelStyle: TextStyle(color: Color(0xFFF122F51)),
-                          prefixIcon: Icon(Icons.email, color:Color(0xFFF122F51)),
+                          prefixIcon: Icon(
+                            Icons.email,
+                            color: Color(0xFFF122F51),
+                          ),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10.0),
                           ),
@@ -103,17 +126,20 @@ class _LoginState extends State<Login> {
                             ),
                             borderRadius: BorderRadius.circular(10.0),
                           ),
+
                           // Borda quando o campo ganha foco
-                          
                           labelText: 'Senha',
                           labelStyle: TextStyle(color: Color(0xFFF122F51)),
-                          prefixIcon: Icon(Icons.lock, color: Color(0xFFF122F51)),
+                          prefixIcon: Icon(
+                            Icons.lock,
+                            color: Color(0xFFF122F51),
+                          ),
                           suffixIcon: IconButton(
                             onPressed: () => _viewPass(),
                             icon: obscurePass == true
                                 ? Icon(Icons.visibility)
                                 : Icon(Icons.visibility_off),
-                                color: Color(0xFFF122F51),
+                            color: Color(0xFFF122F51),
                           ),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10.0),
